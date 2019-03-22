@@ -33,7 +33,7 @@ let returnOption = {
 //登录
 app.use("/login",function(req,res){
 	let option = getOption(req);
-	
+	let returnOption = new returnOption;
 	let mongoOption = {
 		action:"find",
 		collections:"user",
@@ -60,6 +60,7 @@ app.use("/login",function(req,res){
 //注册
 app.use("/register",function(req,res){
 	let option = getOption(req);
+	let returnOption = new returnOption;
 	if(!option.userID || !option.password){
 		returnOption.status = false;
 		returnOption.msg = "请补全信息";
