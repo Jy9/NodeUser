@@ -1,0 +1,4 @@
+{
+	"POST":3000,
+	"mongoURL":"mongodb://localhost:27017/JiaYue"
+}
