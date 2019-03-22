@@ -24,7 +24,7 @@ function getOption(req){
 	return JSON.stringify(req.body) !== "{}" ? req.body : req.query;
 }
 //返回数据模板
-function returnOption(){
+function getReturnOption(){
 	return {
 		status:true,
 		data:{},
@@ -32,10 +32,12 @@ function returnOption(){
 	}
 }
 
+console.log(new getReturnOption())
+
 //登录
 app.use("/login",function(req,res){
 	let option = getOption(req);
-	let returnOption = new returnOption();
+	let returnOption = new getReturnOption();
 	let mongoOption = {
 		action:"find",
 		collections:"user",
@@ -62,7 +64,7 @@ app.use("/login",function(req,res){
 //注册
 app.use("/register",function(req,res){
 	let option = getOption(req);
-	let returnOption = new returnOption();
+	let returnOption = new getReturnOption();
 	if(!option.userID || !option.password){
 		returnOption.status = false;
 		returnOption.msg = "请补全信息";
